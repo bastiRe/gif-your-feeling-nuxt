@@ -12,7 +12,12 @@
     </div>
     <div class="flex mx-auto w-full flex-wrap justify-around p-2">
       <div v-if="loading">Loading...</div>
-      <div v-for="(image, index) in gifs" :key="index" class="p-2 w-48 h-48 cursor-pointer">
+      <div
+        v-for="(image, index) in gifs"
+        :key="index"
+        v-on:click="saveGif(image)"
+        class="p-2 w-48 h-48 cursor-pointer"
+      >
         <img :src="image" class="w-full h-full">
       </div>
     </div>
@@ -35,6 +40,11 @@ export default {
   watch: {
     query() {
       this.$store.dispatch('gifs/search', this.query)
+    }
+  },
+  methods: {
+    saveGif(image) {
+      this.$store.dispatch('database/saveGif', image)
     }
   }
 }

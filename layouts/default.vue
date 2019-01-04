@@ -20,7 +20,8 @@ import { mapState } from 'vuex'
 export default {
   computed: mapState({
     username: state => state.user.name
-  })
+  }),
+  middleware: 'loggedIn'
 }
 </script>
 
