@@ -1,4 +1,5 @@
 const pkg = require('./package')
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 module.exports = {
   mode: 'spa',
@@ -35,6 +36,13 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [],
+
+  /*
+  ** Env variables
+  */
+  env: {
+    giphyApiKey: process.env.GIPHY_API_KEY
+  },
 
   /*
   ** Build configuration

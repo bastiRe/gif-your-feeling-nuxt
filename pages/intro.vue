@@ -34,6 +34,7 @@ export default {
     setName() {
       if (this.name.length > 0) {
         this.$store.commit('user/setName', this.name)
+        this.$router.push('/')
       }
     }
   }
