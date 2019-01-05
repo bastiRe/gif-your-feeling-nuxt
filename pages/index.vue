@@ -1,9 +1,18 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex mx-auto w-full flex-wrap justify-around p-2">
+    <div class="flex w-full flex-wrap p-4">
       <div v-if="loading">Loading...</div>
-      <div v-for="(feeling, index) in feelings" :key="index" class="p-2 w-48 h-48 cursor-pointer">
-        <img :src="feeling.gifUrl" class="w-full h-full">
+      <div
+        v-for="(feeling, index) in feelings"
+        :key="index"
+        class="w-48 rounded overflow-hidden shadow-lg m-4"
+      >
+        <div class="w-48 h-48">
+          <img :src="feeling.gifUrl" class="w-full h-full">
+        </div>
+        <div class="p-2">
+          <div class="font-bold text-xl">{{feeling.userName}}</div>
+        </div>
       </div>
     </div>
     <div class="absolute pin-r pin-b m-6">
