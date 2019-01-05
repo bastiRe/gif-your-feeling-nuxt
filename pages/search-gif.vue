@@ -45,6 +45,7 @@ export default {
   methods: {
     saveGif(image) {
       this.$store.dispatch('database/saveGif', image)
+      this.$router.push('/')
     }
   }
 }

@@ -2,7 +2,9 @@
   <div class="bg-grey-lighter w-full h-full">
     <nav class="flex items-center justify-between flex-wrap bg-indigo p-6 shadow-md">
       <div class="flex items-center flex-no-shrink text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">Gif your feeling</span>
+        <nuxt-link to="/" class="text-white no-underline">
+          <span class="font-semibold text-xl tracking-tight">Gif your feeling</span>
+        </nuxt-link>
       </div>
       <div v-if="username">
         <span
