@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full h-full items-center justify-center">
-    <div class="w-full max-w-xs self-center">
+    <div class="w-full max-w-xs mt-32">
       <form v-on:submit.prevent="setName" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="username">Your name</label>
