@@ -4,7 +4,6 @@
       <div v-if="loading">Loading...</div>
       <feeling v-for="(feeling, index) in feelings" :key="index" v-bind:feeling="feeling"/>
     </div>
-    <add-button/>
   </div>
 </template>
 
@@ -15,11 +14,14 @@ import AddButton from '~/components/AddButton'
 
 export default {
   components: {
-    feeling: Feeling,
-    'add-button': AddButton
+    feeling: Feeling
   },
   computed: mapState({
-    feelings: state => state.database.feelings,
+    feelings: function() {
+      return this.$store.getters['database/getFeelingsByUserId'](
+        this.$route.params.id
+      )
+    },
     loading: state => state.database.loading
   }),
   created() {
