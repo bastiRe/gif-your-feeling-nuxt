@@ -5,7 +5,9 @@ const apiKey = process.env.giphyApiKey
 
 const getGifs = (query, callback) => {
   axios
-    .get(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}`)
+    .get(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=50`
+    )
     .then(result => callback(result))
 }
 
