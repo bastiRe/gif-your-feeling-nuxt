@@ -1,10 +1,10 @@
 # gif-your-feeling
 
-> A nuxtjs example project to show how you feel via a gif and rating.
+> A nuxtjs example project to show how you feel via a gif and rating. Uses firebase as a backend.
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -19,4 +19,8 @@ $ yarn start
 $ yarn run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on Nuxt works, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Configuration
+
+To configure Firebase and the Giphy Api fill in the variables in the `.env.sample` file and rename it to `.env`.
