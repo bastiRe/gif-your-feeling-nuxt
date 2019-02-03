@@ -8,13 +8,12 @@
       <img :src="feeling.gifUrl" class="w-full h-full">
     </div>
     <div class="p-2">
-      <div class="font-bold text-xl">{{feeling.userName}}</div>
+      <span class="font-semibold text-xl">{{feeling.userName}}</span>
     </div>
   </nuxt-link>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   props: ['feeling']
 }

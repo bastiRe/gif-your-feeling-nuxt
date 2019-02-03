@@ -1,4 +1,4 @@
-import { fireDb } from '~/plugins/firebase.js'
+import { fireDb, firestore } from '~/plugins/firebase.js'
 
 export const state = () => ({
   loading: false,
@@ -18,7 +18,8 @@ export const actions = {
       const ref = await fireDb.collection('feelings').add({
         gifUrl,
         userId: rootState.user.id,
-        userName: rootState.user.name
+        userName: rootState.user.name,
+        createdAt: firestore.FieldValue.serverTimestamp()
       })
     } catch (e) {
       console.log(e)
