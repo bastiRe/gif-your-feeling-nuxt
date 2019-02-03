@@ -11,7 +11,6 @@
       >
     </div>
     <div class="flex mx-auto w-full flex-wrap justify-around p-2">
-      <div v-if="loading">Loading...</div>
       <div
         v-for="(image, index) in gifs"
         :key="index"
@@ -20,6 +19,14 @@
       >
         <img :src="image" class="w-full h-full">
       </div>
+    </div>
+    <div class="p-2 mx-auto">
+      <div v-if="loading" class="text-center">Loading...</div>
+      <button
+        v-if="!loading && gifs.length > 0"
+        v-on:click="loadMore()"
+        class="block mx-auto bg-indigo hover:bg-indigo-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >Load more</button>
     </div>
   </div>
 </template>
@@ -46,6 +53,9 @@ export default {
     saveGif(image) {
       this.$store.dispatch('database/saveGif', image)
       this.$router.push('/')
+    },
+    loadMore() {
+      this.$store.dispatch('gifs/loadMore')
     }
   },
   head() {
