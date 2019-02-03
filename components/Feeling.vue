@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     tag="div"
-    v-bind:to="`users/${feeling.userId}`"
+    v-bind:to="`/users/${feeling.userId}`"
     class="w-48 rounded overflow-hidden shadow-lg m-4 cursor-pointer"
   >
     <div class="w-48 h-48">

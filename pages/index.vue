@@ -24,6 +24,11 @@ export default {
   }),
   created() {
     this.$store.dispatch('database/downloadFeelings')
+  },
+  head() {
+    return {
+      title: 'Gif your feeling'
+    }
   }
 }
 </script>

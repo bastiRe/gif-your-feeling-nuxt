@@ -47,6 +47,11 @@ export default {
       this.$store.dispatch('database/saveGif', image)
       this.$router.push('/')
     }
+  },
+  head() {
+    return {
+      title: 'Add your feeling'
+    }
   }
 }
 </script>

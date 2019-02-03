@@ -26,6 +26,12 @@ export default {
   }),
   created() {
     this.$store.dispatch('database/downloadFeelings')
+  },
+  head() {
+    const userName = this.feelings[0] && this.feelings[0].userName
+    return {
+      title: `${userName}'s Feelings`
+    }
   }
 }
 </script>
