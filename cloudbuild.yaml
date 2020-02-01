@@ -2,6 +2,6 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['generate']
+    args: ['run generate']
   - name: 'gcr.io/cloud-builders/gsutil'
     args: ["-m", "rsync", "-r", "-c", "-d", "./dist", "gs://gif-your-feeling.appspot.com"]
