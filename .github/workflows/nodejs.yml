@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Build Deploy
 
 on: [push]
 
@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x,]
 
     steps:
     - uses: actions/checkout@v2
@@ -19,3 +19,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run generate
+    
+     # Setup gcloud CLI
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '275.0.0'
+        service_account_email: ${{ secrets.SA_EMAIL }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+
+      # Upload to bucket
+    - name: Deploy
+      run: gsutil cp -r dist/* gs://gif-your-feeling.appspot.com
